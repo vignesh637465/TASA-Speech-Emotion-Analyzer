@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Emotion Analyzer | Text & Speech Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-icon">🎙️📊</div>
+            <h1>Speech Emotion Analyzer</h1>
+            <p class="subtitle">Analyze speech pace, audio energy, and transcript signals to estimate speech emotion</p>
+        </header>
+
+        <!-- Educational Disclaimer Banner -->
+        <div class="disclaimer-banner">
+            ℹ️ <strong>Educational & Demo Project Only:</strong> This application uses basic browser speech metrics (WPM, audio energy, and sentiment keywords) for demonstration purposes. It does not claim professional psychological or medical diagnostic accuracy.
+        </div>
+
+        <!-- Main Card -->
+        <main class="main-card">
+            <!-- Controls Section -->
+            <section class="controls-section">
+                <div class="status-box">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText" class="status-text">Ready to Record Voice</span>
+                    <span id="timer" class="timer-badge">00:00</span>
+                </div>
+
+                <!-- Live Audio Visualizer Canvas -->
+                <div class="visualizer-wrapper">
+                    <canvas id="audioVisualizer" height="60"></canvas>
+                </div>
+
+                <div class="recording-buttons">
+                    <button id="startBtn" class="btn btn-start">
+                        <span class="btn-icon">🎙️</span> Start Recording
+                    </button>
+                    <button id="stopBtn" class="btn btn-stop" disabled>
+                        <span class="btn-icon">⏹️</span> Stop & Analyze
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="divider"></div>
+                <h2>Speech Analysis Dashboard</h2>
+
+                <div class="dashboard-grid">
+                    <!-- Estimated Emotion Card -->
+                    <div class="emotion-card" id="emotionCard">
+                        <div class="card-label">Estimated Speech Emotion</div>
+                        <div class="emotion-emoji" id="emotionEmoji">😐</div>
+                        <div class="emotion-title" id="emotionTitle">Neutral</div>
+                        <div class="confidence-tag">
+                            <span>Confidence: </span>
+                            <strong id="confidenceVal">75%</strong>
+                        </div>
+                    </div>
+
+                    <!-- Speech Metrics Grid -->
+                    <div class="metrics-card">
+                        <h3>Acoustic & Speech Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-box">
+                                <span class="metric-label">Speaking Speed</span>
+                                <span class="metric-val" id="wpmVal">0 WPM</span>
+                                <span class="metric-sub" id="speedPace">Normal Pace</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Speech Duration</span>
+                                <span class="metric-val" id="durationVal">0s</span>
+                                <span class="metric-sub">Total Recording</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Word Count</span>
+                                <span class="metric-val" id="wordCountVal">0</span>
+                                <span class="metric-sub">Spoken Words</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Audio Energy</span>
+                                <span class="metric-val" id="energyVal">Medium</span>
+                                <span class="metric-sub">Volume Intensity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transcript Display -->
+                <div class="transcript-box">
+                    <h3>Spoken Transcript</h3>
+                    <div id="transcriptDisplay" class="transcript-content">No speech recorded yet...</div>
+                </div>
+
+                <!-- Algorithm Explanation -->
+                <div class="explanation-box">
+                    <h3>Estimation Rule Breakdown</h3>
+                    <ul id="ruleBreakdownList" class="rule-list">
+                        <!-- Dynamic explanation list -->
+                    </ul>
+                </div>
+
+                <!-- Clear Button -->
+                <div class="action-row">
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <span class="btn-icon">🗑️</span> Reset Analyzer
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Text & Speech Analysis Project #5 &bull; Multimodal Speech & Audio Analysis Demo</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
